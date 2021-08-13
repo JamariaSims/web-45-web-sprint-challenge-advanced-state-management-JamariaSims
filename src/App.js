@@ -4,18 +4,16 @@ import AddForm from "./components/AddForm";
 import SmurfList from "./components/SmurfList";
 import Header from "./components/Header";
 import { CallAction } from "./actions";
-import axios from "axios";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { connect } from "react-redux";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
-    axios
-      .get("http://localhost:3333/smurfs")
-      .then((res) => console.log(res))
-      .catch((err) => console.log("Axios Error", err));
+    this.props.CallAction();
   }
 
   render() {
@@ -31,8 +29,10 @@ class App extends Component {
     );
   }
 }
-
-export default connect(null, { CallAction })(App);
+const mapStateToProps = (state) => {
+  return state;
+};
+export default connect(mapStateToProps, { CallAction })(App);
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
 //2. Call the fetchSmurfs action when the component first loads.

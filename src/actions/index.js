@@ -12,7 +12,7 @@ export const CallAction = () => (dispatch) => {
   axios
     .get(`http://localhost:3333/smurfs`)
     .then((response) => {
-      dispatch({ type: FETCH_SMURF_SUCCESS, payload: response.data.results });
+      dispatch({ type: FETCH_SMURF_SUCCESS, payload: response.data });
     })
     .catch((error) => {
       dispatch({ type: FETCH_SMURF_FAIL, payload: error });

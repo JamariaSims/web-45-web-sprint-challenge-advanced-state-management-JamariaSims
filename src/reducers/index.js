@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
       };
     }
     case FETCH_SMURF_SUCCESS: {
-      return { ...state, animeList: action.payload, isLoading: false };
+      return { ...state, smurfs: action.payload, isLoading: false };
     }
     case FETCH_SMURF_FAIL: {
       return { ...state, isLoading: false, error: action.payload };
