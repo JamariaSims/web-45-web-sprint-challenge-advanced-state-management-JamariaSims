@@ -29,7 +29,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, isLoading: false, error: action.payload };
     }
     case ADD_SMURF_START: {
-      return { ...state, isLoading: false, smurfs: action.payload };
+      state.smurfs.push(action.payload);
+      return { ...state, smurfs: state.smurfs };
     }
     case ADD_ERROR: {
       return { ...state, isLoading: false, error: action.payload };
